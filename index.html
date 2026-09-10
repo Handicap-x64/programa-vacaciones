@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>INICIO SESION</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-container">
+                <div class="form-top">
+                    <span>ORICHUNA.CA</span>
+                </div>
+                <form class="form" id="form" autocomplete="off">
+                    <div class="login">
+                        <h2>Bienvenido</h2>
+                    <p>Inicie sesión para continuar.</p>
+                    <div class="input">
+                        <label for="email">Correo o teléfono</label>
+                        <input type="text" name="emailOrPhone" id="email" placeholder="Correo electrónico o teléfono" autocomplete="off">
+                    </div>
+                    <div class="input">
+                        <label for="password">Password</label>
+                        <div class="password-field">
+                            <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="new-password">
+                            <button type="button" class="toggle-password" id="toggle-password" aria-label="Mostrar contraseña">Mostrar</button>
+                        </div>
+                    </div>
+                    <div class="reminder">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">Remember for 30 days</label>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button>Iniciar sesión</button>
+                    </div>
+                </div>
+                </form>
+                <div class="form-bot">
+                    <span>ºGEY EL QUE LO LEA</span>
+                </div>
+            </div>
+            <div class="banner toggle" id="banner">
+                <div class="circulo"></div>
+                <div class="circulo-2"></div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
