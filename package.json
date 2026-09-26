@@ -1,0 +1,23 @@
+{
+  "name": "programa-vacaciones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Handicap-x64/programa-vacaciones.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Handicap-x64/programa-vacaciones/issues"
+  },
+  "homepage": "https://github.com/Handicap-x64/programa-vacaciones#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
