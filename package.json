@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/Handicap-x64/programa-vacaciones#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "db-local": "3.1.0",
+    "express": "5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.6.5"
   }
 }
