@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ORICHUNA.CA</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/">Inicio</a>
+                <a href="/asignacion">Asignar nuevo ticket</a>
+                <a href="/surtir-estacion">Surtir estacion</a>
+                <a href="/gestion-usuarios" class="active">Gestión de Usuarios</a>
+                <a href="/login" id="logout">Cerrar sesión</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Gestión de Usuarios</h1>
+                <button onclick="cargarUsuarios()" class="primary-btn" style="width: auto; margin: 0;">Actualizar</button>
+            </header>
+
+            <div class="tickets-grid">
+                <table id="usuarios-table" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>CI</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <!-- Las filas las pinta public/gestion_usuarios/usuarios.js -->
+                    <tbody id="usuarios-table-body"></tbody>
+                </table>
+            </div>
+
+            <div class="acciones-pie">
+                <a href="/gestion-usuarios/crear" class="primary-btn boton-enlace">Crear nuevo usuario</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="/gestion_usuarios/usuarios.js"></script>
+</body>
+</html>

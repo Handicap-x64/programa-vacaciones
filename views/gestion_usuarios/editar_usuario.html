@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ORICHUNA.CA</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/">Inicio</a>
+                <a href="/asignacion">Asignar nuevo ticket</a>
+                <a href="/surtir-estacion">Surtir estacion</a>
+                <a href="/gestion-usuarios" class="active">Gestión de Usuarios</a>
+                <a href="/login" id="logout">Cerrar sesión</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="recovery-card">
+                <div class="recovery-header">
+                    <span class="brand">ADMINISTRADOR</span>
+                    <h1>Editar usuario</h1>
+                    <p id="subtitulo">Cargando los datos del usuario...</p>
+                </div>
+
+                <form id="form-usuario" class="recovery-form">
+                    <label>Username:</label>
+                    <input type="text" id="username" pattern="[a-zA-Z0-9_]+" minlength="3" maxlength="20" required>
+
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" pattern="[a-zA-Z ]+" maxlength="20" required>
+
+                    <label>Apellido:</label>
+                    <input type="text" id="apellido" pattern="[a-zA-Z ]+" maxlength="20" required>
+
+                    <label>CI:</label>
+                    <input type="text" id="ci" pattern="[0-9]+" required>
+
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+
+                    <label>Contraseña:</label>
+                    <input type="text" id="password" autocomplete="off">
+                    <small class="ayuda">Dejalo vacío para no cambiarla. Si escribís una, tiene que cumplir la política.</small>
+
+                    <label>Rol:</label>
+                    <select id="role" required>
+                        <option value="empleado">Empleado</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+
+                    <button type="submit" id="btn-guardar" class="primary-btn">Guardar cambios</button>
+                </form>
+
+                <p id="mensaje" class="recovery-message"></p>
+                <a href="/gestion-usuarios" class="volver-enlace">Volver a la lista</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="/gestion_usuarios/editar.js"></script>
+</body>
+</html>

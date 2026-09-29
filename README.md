@@ -29,7 +29,6 @@ Aqui estaran las rutas para peticiones a la API tambien se especificara el metod
     apellido,
     ci,
     email,
-    phone,
     password
 }
 // Lo pueden pasar como un objeto o pasar todos los campos en variables individuales

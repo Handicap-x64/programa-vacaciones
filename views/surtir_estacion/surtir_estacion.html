@@ -2,38 +2,81 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo Surtir</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="/index.css">
 </head>
-<body class="recovery-body">
-    <div class="recovery-card">
-        <div class="recovery-header">
-            <span class="brand">ADMINISTRADOR</span>
-            <h1>Módulo Surtir</h1>
-            <p>Registro de combustible del día.</p>
-        </div>
-        <form id="form-surtir" class="recovery-form">
-            <label>Combustible total (Lts):</label>
-            <input type="number" id="totalCombustible" required>
-            
-            <label>Hora Inicio:</label>
-            <input type="time" id="horaInicio" required>
-            
-            <label>Hora Cierre:</label>
-            <input type="time" id="horaCierre" required>
-            
-            <label>Asignación Moto (Lts):</label>
-            <input type="number" id="asigMoto" required>
-            
-            <label>Asignación Automóvil (Lts):</label>
-            <input type="number" id="asigAuto" required>
-            
-            <label>Asignación Camión (Lts):</label>
-            <input type="number" id="asigCamion" required>
-            
-            <button type="submit" class="primary-btn">Guardar Surtido</button>
-        </form>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ORICHUNA.CA</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/">Inicio</a>
+                <a href="/asignacion">Asignar nuevo ticket</a>
+                <a href="/surtir-estacion" class="active">Surtir estacion</a>
+                <a href="/gestion-usuarios">Gestión de Usuarios</a>
+                <a href="/login" id="logout">Cerrar sesión</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="recovery-card">
+                <div class="recovery-header">
+                    <span class="brand">ADMINISTRADOR</span>
+                    <h1>Surtir estacion</h1>
+                    <p>Registro de combustible del día.</p>
+                </div>
+                <form id="form-surtir" class="recovery-form">
+                    <label>Combustible total (Lts):</label>
+                    <input type="number" id="totalCombustible" required>
+
+                    <label>Hora Inicio:</label>
+                    <input type="time" id="horaInicio" required>
+
+                    <label>Hora Cierre:</label>
+                    <input type="time" id="horaCierre" required>
+
+                    <label>Asignación Moto (Lts):</label>
+                    <input type="number" id="asigMoto" required>
+
+                    <label>Asignación Automóvil (Lts):</label>
+                    <input type="number" id="asigAuto" required>
+
+                    <label>Asignación Camión (Lts):</label>
+                    <input type="number" id="asigCamion" min="0" step="0.1" required>
+
+                    <button type="submit" class="primary-btn">Guardar Surtido</button>
+                </form>
+                <p id="surtir-mensaje" class="recovery-message"></p>
+            </div>
+
+            <div class="recovery-card recovery-card-ancho">
+                <div class="recovery-header">
+                    <h1>Surtidas registradas</h1>
+                    <p>Historial de las cargas de combustible.</p>
+                </div>
+                <!-- Las filas las pinta public/surtir.js -->
+                <div class="tabla-scroll">
+                <table id="surtidas-table" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Hora inicio</th>
+                            <th>Hora cierre</th>
+                            <th>Moto</th>
+                            <th>Automóvil</th>
+                            <th>Camión</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="surtidas-table-body"></tbody>
+                </table>
+                </div>
+            </div>
+        </main>
     </div>
-    <script src="script.js"></script>
+    <script src="/surtir.js"></script>
 </body>
 </html>

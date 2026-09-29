@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticacion en dos pasos</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Autenticación en dos pasos</title>
+    <link rel="stylesheet" href="2fa.css">
+    <script src="2fa.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="form-container">
-            <h2>Autenticacion en dos pasos</h2>
+    <div class="twofa-page">
+        <div class="twofa-card">
+            <div class="twofa-header">
+                <span>ORICHUNA.CA</span>
+            </div>
+
+            <form class="twofa-form" id="twofa-form" autocomplete="off">
+                <div class="twofa-box">
+                    <h2>Autenticación en dos pasos</h2>
+                    <p>Ingresa el código de verificación enviado a tu correo electrónico.</p>
+
+                    <div class="input">
+                        <label for="codigo">Código de verificación</label>
+                        <input type="text" id="codigo" name="codigo" placeholder="123456" maxlength="6" inputmode="numeric" required>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit">Verificar</button>
+                    </div>
+
+                    <p class="resend"><a href="#">Reenviar código</a></p>
+                </div>
+            </form>
+
+            <div class="twofa-footer">
+                <span>ºGEY EL QUE LO LEA</span>
+            </div>
         </div>
     </div>
 </body>

@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "14",
+    "tipo": "moto",
+    "marca": "Toyota",
+    "modelo": "Audi",
+    "placa": "123457",
+    "color": "rojo",
+    "estado": "Aceptado",
+    "codigoVerificacion": "732",
+    "cantidadCombustible": 200
+  }
+]

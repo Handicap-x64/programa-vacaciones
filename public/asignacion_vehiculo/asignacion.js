@@ -1,4 +1,4 @@
-const API_URL_ASIGNACION = "http://localhost:3000/api/asignacion"; //has tu magia francisco
+const API_URL_ASIGNACION = "/api/tickets/create"; //has tu magia francisco
 
 //clases y herencia
 class Vehiculo {
@@ -33,7 +33,7 @@ class TicketExito extends Ticket {
     generar() {
         const turno = Math.floor(Math.random() * 20) + 1;
         const det = `Placa: ${this.vehiculo.placa} | Modelo: ${this.vehiculo.modelo} | Color: ${this.vehiculo.color}`;
-        const est = `<strong style="color:green">Aceptado</strong> <br> <small>${this.vehiculo.tipo.toUpperCase()} - ${this.litros}</small>`;
+        const est = `<strong style="color:green">Aceptado</strong> <br> <small>${this.vehiculo.tipo.toUpperCase()} - ${this.litros} Lts</small>`;
         const cod = Math.floor(100 + Math.random() * 900);
         this.pintarHTML(`Turno: ${turno}`, det, est, cod);
     }
@@ -53,6 +53,7 @@ class TicketError extends Ticket {
 //temporizador
 let tiempoRestante = 180; 
 let timerInterval;
+let tiempoAgotado = false;
 
 function iniciarTemporizador() {
     timerInterval = setInterval(() => {
@@ -63,9 +64,13 @@ function iniciarTemporizador() {
 
         if (tiempoRestante <= 0) {
             clearInterval(timerInterval);
+            tiempoAgotado = true;
             document.getElementById('btn-procesar').disabled = true;
             document.getElementById('form-asignacion').reset();
-            new TicketError("Tiempo expirado").generar();
+
+            // alert es bloqueante: la redireccion solo pasa cuando le dan OK
+            alert("tiempo agotado");
+            globalThis.location.assign("/");
         }
     }, 1000);
 }
@@ -75,6 +80,8 @@ iniciarTemporizador();
 //enviar
 document.getElementById('form-asignacion').addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (tiempoAgotado) return;
+
     clearInterval(timerInterval);
 
     const miVehiculo = new Vehiculo(
@@ -85,15 +92,38 @@ document.getElementById('form-asignacion').addEventListener('submit', async (e) 
         document.getElementById('color').value
     );
 
+    const cantidadCombustible = document.getElementById('cantidadCombustible').value;
+
+    const btn = document.getElementById('btn-procesar');
+    btn.disabled = true;
+
     try {
-        await fetch(API_URL_ASIGNACION, { 
+        const response = await fetch(API_URL_ASIGNACION, { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify(miVehiculo) 
+            body: JSON.stringify({ ...miVehiculo, estado: "Aceptado", cantidadCombustible }) 
         });
-        
-        new TicketExito(miVehiculo, "50 Lts").generar();
+
+        if (!response.ok) {
+            // el 400 del repo manda {error}, y el 500 manda {} porque json() de un Error da {}
+            const { error } = await response.json().catch(() => ({}));
+            throw new Error(error ?? `Error ${response.status}`);
+        }
+
+        // se muestran los litros reales que se mandaron, no un valor fijo
+        new TicketExito(miVehiculo, Number(cantidadCombustible)).generar();
     } catch (error) {
-        new TicketError("Error de conexión").generar();
+        btn.disabled = false; // si fallo, que pueda reintentar
+        new TicketError(error.message).generar();
     }
 });
+
+// LOGOUT
+document.getElementById("logout").addEventListener("click", async e => {
+    e.preventDefault();
+
+    if (!confirm("¿Seguro que quieres cerrar la sesion?")) return
+
+    await fetch("/api/logout", { method: "POST" });
+    globalThis.location.assign("/login");
+})

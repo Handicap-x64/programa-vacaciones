@@ -1,0 +1,184 @@
+@import url("../style.css");
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #c5c8d6, var(--bg-color));
+    padding: 1rem;
+}
+
+.twofa-page {
+    width: min(60rem, 100%);
+    min-height: 42rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.twofa-card {
+    width: 100%;
+    min-height: 42rem;
+    border: 2px solid #030303;
+    border-radius: 1rem;
+    background-color: var(--bg-form-color);
+    box-shadow: 0 1.5rem 3rem rgba(38, 42, 62, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.twofa-header,
+.twofa-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    padding: 1.2rem 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.twofa-header span,
+.twofa-footer span {
+    position: relative;
+    display: inline-block;
+}
+
+.twofa-header span::before,
+.twofa-footer span::before {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    top: 50%;
+    left: -0.8rem;
+    transform: translateY(-50%);
+}
+
+.twofa-header span::after,
+.twofa-footer span::after {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    top: 50%;
+    right: -0.8rem;
+    transform: translateY(-50%);
+}
+
+.twofa-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.twofa-box {
+    width: min(96%, 55rem);
+    min-height: 33rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    border: 2px solid #aeaeae;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem 2rem;
+}
+
+.twofa-box h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    width: 100%;
+}
+
+.twofa-box p {
+    font-size: 0.8rem;
+    color: var(--muted-color);
+    line-height: 1.5;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.input label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.input input {
+    width: 100%;
+    font-size: 0.8rem;
+    outline: none;
+    border: 1px solid var(--border-input-color);
+    border-radius: 0.3rem;
+    padding: 0.9rem 0.8rem;
+    background-color: #fbfbfd;
+    color: var(--text-color);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.16);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.buttons button {
+    width: 100%;
+    border: none;
+    border-radius: 0.4rem;
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.buttons button:hover {
+    filter: brightness(0.97);
+}
+
+.resend {
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+.resend a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.resend a:hover {
+    text-decoration: underline;
+}
+
+.twofa-footer {
+    font-size: 0.6rem;
+    opacity: 0.4;
+    color: var(--muted-color);
+}

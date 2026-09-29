@@ -3,14 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <title>Inicio - Tickets Generados</title>
+    <link rel="stylesheet" href="index.css"> 
 </head>
-<body>
-    <div class="container">
-        <h2>INICIO</h2>
-        <button id="logout">CERRAR SESION</button>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ORICHUNA.CA</h2>
+            </div>
+            <nav class="sidebar-nav">
+               <a href="/" class="active">Inicio</a> 
+                <a href="/asignacion">Asignar nuevo ticket</a>
+                <a href="/surtir-estacion">Surtir estacion</a>
+               <a href="/gestion-usuarios">Gestión de Usuarios</a>
+               <a href="/login" id="logout">Cerrar sesión</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Tickets Generados</h1>
+                <button onclick="cargarTickets()" class="primary-btn" style="width: auto; margin: 0;">Actualizar</button>
+            </header>
+
+            <!-- Los 4 numeros los pinta public/index.js -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Combustible total</span>
+                    <strong class="stat-value" id="stat-total">0</strong>
+                    <span class="stat-unit">litros</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">Combustible para motos</span>
+                    <strong class="stat-value" id="stat-moto">0</strong>
+                    <span class="stat-unit">litros</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">Combustible para automoviles</span>
+                    <strong class="stat-value" id="stat-auto">0</strong>
+                    <span class="stat-unit">litros</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">Combustible para camiones</span>
+                    <strong class="stat-value" id="stat-camion">0</strong>
+                    <span class="stat-unit">litros</span>
+                </div>
+            </div>
+
+            <div id="tickets-grid" class="tickets-grid">
+                <table id="tickets-table" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TIpo</th>
+                            <th>Maraca</th>
+                            <th>Modelo</th>
+                            <th>Placa</th>
+                            <th>Color</th>
+                            <th>Cantidad combustible</th>
+                            <th>Estado</th>
+                            <th>Codigo de verificación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <!-- Las filas las pinta public/index.js -->
+                    <tbody id="tickets-table-body"></tbody>
+                </table>
+            </div>
+        </main>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>

@@ -203,7 +203,8 @@ body {
     border-radius: 0.2rem 0 0 0.2rem;
 }
 
-.toggle-password {
+.toggle-password,
+.toggle-identifier {
     border: 1px solid var(--border-input-color);
     border-left: 0;
     border-radius: 0 0.2rem 0.2rem 0;
@@ -215,11 +216,13 @@ body {
     font-weight: 600;
 }
 
-.toggle-password:hover {
+.toggle-password:hover,
+.toggle-identifier:hover {
     background-color: #e3e3e9;
 }
 
-.toggle-password:focus-visible {
+.toggle-password:focus-visible,
+.toggle-identifier:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
@@ -438,7 +441,7 @@ body {
 }
 
 
-   /*MÓDULOS Y TICKET*/
+   /*modulos*/
    
 body.recovery-body {
     flex-direction: column; 
@@ -465,4 +468,392 @@ body.recovery-body {
 #ticket-container {
     border: 3px dashed var(--primary-color);
     background: var(--bg-baner-color);
+}
+
+/*vainas del sidebard*/
+
+body.dashboard-body {
+    padding: 0;
+    align-items: stretch;
+}
+
+.dashboard-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*barra lateral*/
+.sidebar {
+    width: 250px;
+    flex-shrink: 0; /* que el contenido ancho no lo aplaste */
+    background: var(--bg-form-color);
+    border-right: 2px solid #030303;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 2px solid #030303;
+    background: var(--bg-baner-color);
+}
+
+.sidebar-header h2 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 0.8rem;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: var(--bg-baner-color);
+    border: 1px solid var(--border-input-color);
+    color: var(--primary-color);
+}
+
+/*contenido*/
+.main-content {
+    flex: 1;
+    min-width: 0; /* sin esto no se encoge y empuja al sidebar */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #030303;
+    padding-bottom: 1rem;
+}
+
+.content-header h1 {
+    color: var(--text-color);
+}
+
+/* en los modulos (surtir/asignacion) las cards se centran en vez de estirarse */
+.main-content > .recovery-card {
+    align-self: center;
+}
+
+/* la card de la tabla de surtidas necesita mas ancho que la del formulario */
+.main-content > .recovery-card-ancho {
+    width: min(60rem, 100%);
+}
+
+/* los 4 numeros grandes del index */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.stat-card {
+    background: var(--bg-form-color);
+    border: 2px solid #030303;
+    border-radius: 1rem;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(38, 42, 62, 0.1);
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--muted-color);
+}
+
+.stat-value {
+    font-size: 2.75rem;
+    line-height: 1;
+    color: var(--primary-color);
+}
+
+.stat-unit {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--muted-color);
+}
+
+/*tikets*/
+.tickets-grid {
+    display: block;
+    overflow-x: auto; /* la tabla scrollea adentro, no empuja al sidebar */
+}
+
+/* el contenedor de las tablas scrollea en vez de estrujar las columnas */
+.tabla-scroll {
+    display: block;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-form-color);
+    border: 2px solid #030303;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(38, 42, 62, 0.1);
+}
+
+/* anchos minimos: bajo esto scrollea en vez de estrujar columnas */
+#tickets-table { min-width: 900px; } /* 10 columnas */
+#surtidas-table { min-width: 620px; } /* 7 columnas */
+#usuarios-table { min-width: 1000px; } /* 9 columnas */
+
+.data-table thead th {
+    background: var(--bg-baner-color);
+    text-align: left;
+    padding: 0.85rem 1rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted-color);
+    border-bottom: 2px solid #030303;
+    white-space: nowrap;
+}
+
+.data-table tbody td {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-input-color);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: rgba(241, 244, 251, 0.6);
+}
+
+.data-table tbody tr:hover {
+    background: rgba(255, 132, 0, 0.08);
+}
+
+.data-table tbody td.acciones {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cancelar-btn {
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.35rem;
+    border: 1px solid #d64545;
+    background: #fff;
+    color: #d64545;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.cancelar-btn:hover:not(:disabled) {
+    background: #d64545;
+    color: #fff;
+}
+
+.cancelar-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.data-table tbody tr.sin-tickets td {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    font-style: italic;
+    color: var(--muted-color);
+}
+
+/*gestion de usuarios*/
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 1rem;
+    white-space: nowrap;
+}
+
+.badge-activo {
+    background: rgba(46, 160, 67, 0.12);
+    color: #2ea043;
+    border: 1px solid rgba(46, 160, 67, 0.35);
+}
+
+.badge-inactivo {
+    background: rgba(214, 69, 69, 0.1);
+    color: #d64545;
+    border: 1px solid rgba(214, 69, 69, 0.3);
+}
+
+.editar-btn,
+.eliminar-btn {
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s, color 0.15s;
+}
+
+.editar-btn {
+    border: 1px solid var(--primary-color);
+    background: #fff;
+    color: var(--primary-color);
+}
+
+.editar-btn:hover {
+    background: var(--primary-color);
+    color: #111;
+}
+
+.eliminar-btn {
+    font-family: inherit;
+    border: 1px solid #d64545;
+    background: #fff;
+    color: #d64545;
+}
+
+.eliminar-btn:hover:not(:disabled) {
+    background: #d64545;
+    color: #fff;
+}
+
+.eliminar-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.acciones-pie {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.boton-enlace {
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    color: #111;
+}
+
+.ayuda {
+    font-size: 0.75rem;
+    color: var(--muted-color);
+    margin-top: -0.35rem;
+}
+
+.volver-enlace {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    text-decoration: underline;
+}
+
+.ticket-mini {
+    background: white;
+    border: 3px dashed var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(38, 42, 62, 0.1);
+}
+
+.ticket-mini h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.ticket-mini p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.ticket-mini .codigo-txt {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* en pantallas chicas el sidebar pasa arriba para no robarle ancho a la tabla */
+@media (max-width: 860px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #030303;
+    }
+
+    .sidebar-header {
+        padding: 1rem 1.25rem;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .sidebar-nav a {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .main-content {
+        padding: 1.25rem;
+        gap: 1.25rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
 }
