@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // use STARTTLS (upgrade connection to TLS after connecting)
   auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS,
+    user: EMAIL_USER, // Aqui va el correo
+    pass: EMAIL_PASS, // Aqui va el codigo para conectar el correo
   },
 });
 

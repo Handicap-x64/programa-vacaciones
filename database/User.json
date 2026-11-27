@@ -1,1 +1,24 @@
-[{"_id":"d25c7820-1d44-4ae5-8ec6-c3177f094c25","username":"scraphand","nombre":"scrap","apellido":"hand","ci":"32111111","email":"scraphand2@gmail.com","password":"$2b$10$Z6P1P.JVVdPLnmUkVKcPI.Y9BWyGqBNiYPKfDUzB8.kWSvH9hj0N2","role":"admin","activo":true}]
+[
+  {
+    "_id": "c42fabbf-cd5b-4e88-823d-d0f1b30b2a02",
+    "username": "profesor",
+    "nombre": "francisco",
+    "apellido": "salazar",
+    "ci": "12345678910",
+    "email": "salazarfj@gmail.com",
+    "password": "$2b$10$etC2rT/dX24I5m7tZ0ac4.ZhLX7HZolCiF1csV06IxroS7hn7x8mK",
+    "role": "admin",
+    "activo": false
+  },
+  {
+    "_id": "d25c7820-1d44-4ae5-8ec6-c3177f094c25",
+    "username": "scraphand",
+    "nombre": "scrap",
+    "apellido": "hand",
+    "ci": "32111111",
+    "email": "scraphand2@gmail.com",
+    "password": "$2b$10$Z6P1P.JVVdPLnmUkVKcPI.Y9BWyGqBNiYPKfDUzB8.kWSvH9hj0N2",
+    "role": "admin",
+    "activo": true
+  }
+]

@@ -1,13 +1,1 @@
-[
-  {
-    "_id": "14",
-    "tipo": "moto",
-    "marca": "Toyota",
-    "modelo": "Audi",
-    "placa": "123457",
-    "color": "rojo",
-    "estado": "Aceptado",
-    "codigoVerificacion": "732",
-    "cantidadCombustible": 200
-  }
-]
+[{"_id":"17","tipo":"moto","marca":"bera","modelo":"re","placa":"124","color":"chapapote","estado":"Aceptado","codigoVerificacion":"879","cantidadCombustible":10},{"_id":"13","tipo":"automovil","marca":"ford","modelo":"bronco","placa":"1111","color":"azue","estado":"Aceptado","codigoVerificacion":"112","cantidadCombustible":1},{"_id":"11","tipo":"moto","marca":"bera","modelo":"leon","placa":"234","color":"negro","estado":"Aceptado","codigoVerificacion":"628","cantidadCombustible":400},{"_id":"4","tipo":"moto","marca":"bera","modelo":"500","placa":"123456789","color":"azul","estado":"Cancelado","codigoVerificacion":"420","cantidadCombustible":1000},{"_id":"14","tipo":"moto","marca":"Toyota","modelo":"Audi","placa":"123457","color":"rojo","estado":"Cancelado","codigoVerificacion":"732","cantidadCombustible":200}]

@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "_id": "26628fc5-98a6-4846-b7f1-8c251f70b794",
+    "totalCombustible": 3000,
+    "horaInicio": "09:01",
+    "horaCierre": "02:01",
+    "asigMoto": 1000,
+    "asigAuto": 2000,
+    "asigCamion": 1000
+  },
+  {
+    "_id": "ddf39a68-f70e-4d88-b3dd-d41098224fb8",
+    "totalCombustible": 3000,
+    "horaInicio": "11:59",
+    "horaCierre": "07:59",
+    "asigMoto": 1000,
+    "asigAuto": 1000,
+    "asigCamion": 1000
+  },
+  {
+    "_id": "8f25666a-f4d8-4c57-855e-a7bfdf3de914",
+    "totalCombustible": 1000,
+    "horaInicio": "10:00",
+    "horaCierre": "12:00",
+    "asigMoto": 500,
+    "asigAuto": 400,
+    "asigCamion": 100
+  }
+]
